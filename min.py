@@ -3,7 +3,7 @@ from numpy import array, zeros, linalg, dot
 def fc(x):
     return (x[0]-2)**2 + (x[1]-3)**2  # coloque a função aqui
 
-def gd(x):
+def gd(x):  # cálculo do gradiente
     gd = zeros((N,1))
     for i in range(N):
         x[i] += Dx[i]
@@ -14,7 +14,7 @@ def gd(x):
         gd[i] = (fcx1-fcx0)/(2*Dx[i])
     return gd
 
-def hs(x):
+def hs(x):  # cálculo da hessiana
     hs = zeros((N,N))
     for i in range(N):
         x[i] += Dx[i]
@@ -25,7 +25,7 @@ def hs(x):
         hs[0:N,i:i+1] = (fcx1-fcx0)/(2*Dx[i])
     return hs
 
-def NRm(x):
+def min(x): # algoritmo para minimizar a função
     it=0
     B=1
     x = array(x, dtype=float).reshape(N,1)
@@ -48,5 +48,5 @@ Dx = [1e-5, 1e-6] # discretização em cada variável
 
 N = len(Dx)
 
-print(NRm(x))
+print(min(x))
 
