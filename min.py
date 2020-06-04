@@ -1,7 +1,7 @@
 from numpy import array, zeros, linalg, dot
 
 def fc(x):
-    return (x[0]-2)**2 + (x[1]-3)**2
+    return (x[0]-2)**2 + (x[1]-3)**2  # coloque a função aqui
 
 def gd(x):
     gd = zeros((N,1))
@@ -43,8 +43,9 @@ def NRm(x):
             return 'Não convergiu'
             break
 
-x = [20, 20]
-Dx = [1e-5, 1e-5]
+x = [20, 20] # chute inicial com a quantidade de variáveis da função
+Dx = [1e-5, 1e-6] # discretização em cada variável
+
 N = len(Dx)
 
 print(NRm(x))
